@@ -10,9 +10,9 @@ The standard of an agentic setup: nine practices, the research behind them, and 
 
 This repository is the concept of an agentic setup, not an implementation of one. It holds three parts:
 
-- `standard.toml` — the standard: nine practices, each with what it requires and the source it comes from.
-- `research/` — the studies behind the practices, from reviews of the field to measurements of the workflow itself.
-- `checks/instance.py` — the instance checker, which holds an implementation to the standard.
+- `standard.toml`: the standard: nine practices, each with what it requires and the source it comes from.
+- `research/`: the studies behind the practices, from reviews of the field to measurements of the workflow itself.
+- `checks/instance.py`: the instance checker, which holds an implementation to the standard.
 
 An implementation is its own repository, with its own agents, its own tests and its own ledger; this repository says what any implementation must hold, and checks that it holds it. localAI is the first implementation.
 
@@ -46,11 +46,11 @@ From this repository, `python3 checks/instance.py --instance PATH` then checks t
 
 ## Research
 
-- [research/architecture](research/architecture) — the review the standard stands on: protection principles, guardrails over agent actions, and propose-and-verify with sound critics.
-- [research/dag-scheduling](research/dag-scheduling) — the assignment of tasks to agents under cost and capacity, and the cascades and routers that cut the cost of it.
-- [research/workflow-performance](research/workflow-performance) — the workflow itself, measured from the job ledger: where work passes, what a correct answer costs, what stops a job.
-- [research/sandbox](research/sandbox) — the review behind the scope practice: a task sandbox that holds a task's changes to the scope it declared.
+- [research/architecture](research/architecture): the review the standard stands on: protection principles, guardrails over agent actions, and propose-and-verify with sound critics.
+- [research/dag-scheduling](research/dag-scheduling): the assignment of tasks to agents under cost and capacity, and the cascades and routers that cut the cost of it.
+- [research/workflow-performance](research/workflow-performance): the workflow itself, measured from the job ledger: where work passes, what a correct answer costs, what stops a job.
+- [research/sandbox](research/sandbox): the review behind the scope practice: a task sandbox that holds a task's changes to the scope it declared.
 
 ## Scope
 
-This repository holds the concept only: the standard, the research, the instance checker, and the checks that hold this repository to the family's shapes. It holds no implementation — an implementation is its own repository, checked from here. Generated research output under `research/*/out/` is outside the checks' scope. Nothing of one machine belongs here: no local path, and no name of a tool or model of one machine, because this repository may become public.
+This repository holds the concept only: the standard, the research, the instance checker, and the checks that hold this repository to the family's shapes. It holds no implementation: an implementation is its own repository, checked from here. Generated research output under `research/*/out/` is outside the checks' scope. Nothing of one machine belongs here: no local path, and no name of a tool or model of one machine, because this repository may become public.

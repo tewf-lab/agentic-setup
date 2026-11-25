@@ -1,27 +1,23 @@
+# The family's checks on this repository: the writing checks of reader-ergonomics, at the commit the other families pin
+# (ai-augmented-agents, v1.24.2), cloned outside the checkout so they do not check themselves; then this repository's
+# own tests, the instance checker's among them.
 name: checks
-
 on:
-  - push
-  - pull_request
-
-env:
-  # The ref of Tewf/reader-ergonomics that Tewf/ai-augmented-agents pins; move it when that pin moves.
-  READER_ERGONOMICS_REF: master
-
+  push:
+  pull_request:
 jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: Tewf/reader-ergonomics
-          ref: ${{ env.READER_ERGONOMICS_REF }}
-          path: reader-ergonomics
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: the reader-ergonomics checks on this repository
-        run: python3 reader-ergonomics/checks/check.py --config checks/config.toml .
-      - name: this repository's tests
+      - name: Clone reader-ergonomics at its pinned commit
+        run: |
+          git clone --quiet https://github.com/Tewf/reader-ergonomics "$RUNNER_TEMP/reader-ergonomics"
+          git -C "$RUNNER_TEMP/reader-ergonomics" checkout --quiet 65e42472e2d4cbfd994c2a86e95a47e5dc7301ca
+      - name: Writing checks
+        run: python3 "$RUNNER_TEMP/reader-ergonomics/checks/run.py" .
+      - name: This repository's tests
         run: python3 -m unittest discover -s checks -p 'test_*.py'
