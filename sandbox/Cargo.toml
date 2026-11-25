@@ -1,0 +1,12 @@
+# task-sandbox, the launcher of issue 9 version 1: a crate of one binary that compiles a task's declared
+# scope into a bubblewrap invocation and records what it applied. Dependencies are serde (the scope and the
+# record), toml (the scope file) and serde_json (the record): nothing else.
+[package]
+name = "task-sandbox"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+serde_json = "1"
