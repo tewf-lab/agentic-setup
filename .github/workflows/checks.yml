@@ -1,6 +1,7 @@
 # The family's checks on this repository: the writing checks of reader-ergonomics, at the commit the other families pin
 # (ai-augmented-agents, v1.24.2), cloned outside the checkout so they do not check themselves; then this repository's
-# own tests, the instance checker's among them.
+# own tests, the instance checker's among them; then the lab's review oracle (tewf-lab/vault) on the research, which
+# needs the secret LAB_READ_TOKEN (read-only, the lab's repositories).
 name: checks
 on:
   push:
@@ -17,7 +18,27 @@ jobs:
         run: |
           git clone --quiet https://github.com/Tewf/reader-ergonomics "$RUNNER_TEMP/reader-ergonomics"
           git -C "$RUNNER_TEMP/reader-ergonomics" checkout --quiet 65e42472e2d4cbfd994c2a86e95a47e5dc7301ca
+          git clone --quiet --depth 1 https://github.com/Tewf/reader-ergonomics-review "$RUNNER_TEMP/reader-ergonomics-review"
       - name: Writing checks
         run: python3 "$RUNNER_TEMP/reader-ergonomics/checks/run.py" .
       - name: This repository's tests
         run: python3 -m unittest discover -s checks -p 'test_*.py'
+      - name: The lab's read token is set
+        env:
+          LAB_READ_TOKEN: ${{ secrets.LAB_READ_TOKEN }}
+        run: |
+          if [ -z "$LAB_READ_TOKEN" ]; then
+            echo "::error::LAB_READ_TOKEN is not set: the review oracle in tewf-lab/vault cannot be read. Add the lab's read-only token as an organisation secret of tewf-lab."
+            exit 1
+          fi
+      - name: Check out the vault
+        uses: actions/checkout@v4
+        with:
+          repository: tewf-lab/vault
+          token: ${{ secrets.LAB_READ_TOKEN }}
+          path: vault
+      - name: Review oracle on the research
+        env:
+          REVIEW_AUDIT: ${{ runner.temp }}/reader-ergonomics-review/checks/audit.py
+          WRITING_CHECKS: ${{ runner.temp }}/reader-ergonomics/checks/run.py
+        run: python3 -m unittest discover -s vault/oracles -p test_review.py -k dag -k architecture
