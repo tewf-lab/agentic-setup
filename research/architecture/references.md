@@ -21,7 +21,7 @@ The hub sits in a private repository, so its row links to the public page of the
 | OpenAI 2025 | https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf |
 | Paul 2026 | arXiv:2609.22951 |
 | Saltzer 1975 | 10.1109/proc.1975.9939 |
-| Tewf 2026 hub | https://github.com/Tewf#reference-implementation |
+| Tewf 2026 hub | the reference implementation (private) |
 | Wallace 2024 | arXiv:2404.13208 |
 | Wang 2024 | arXiv:2407.02395 |
 | Wu 2023 | arXiv:2308.08155 |
