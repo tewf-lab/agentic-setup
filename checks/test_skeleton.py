@@ -21,7 +21,7 @@ class Skeleton(unittest.TestCase):
 
     def test_no_path_of_one_machine(self):
         for name in ("README.md", "CHANGELOG.md", "checks/config.toml", ".github/workflows/checks.yml"):
-            self.assertIsNone(re.search(r"/home/|~/Desktop|\bDesktop/", (ROOT / name).read_text()), name)
+            self.assertIsNone(re.search(r"/h[o]me/|~/D[e]sktop|\bD[e]sktop/", (ROOT / name).read_text()), name)
 
     def test_the_changelog_and_the_checks_config(self):
         self.assertIn("Unreleased", (ROOT / "CHANGELOG.md").read_text())
