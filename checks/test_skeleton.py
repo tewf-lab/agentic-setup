@@ -16,7 +16,7 @@ class Skeleton(unittest.TestCase):
         self.assertRegex(text, r"\*\*Shape:\*\* \[[^\]]+\]\([^)]*readme-and-folder\.md\)")
         for practice in tomllib.loads((ROOT / "standard.toml").read_text())["practice"]:
             self.assertIn(practice, text)
-        for needed in ("checks/instance.py", "agentic-setup.toml", "localAI", "research/architecture", "research/sandbox"):
+        for needed in ("checks/instance.py", "agentic-setup.toml", "first implementation", "research/architecture", "research/sandbox"):
             self.assertIn(needed, text)
 
     def test_no_path_of_one_machine(self):
