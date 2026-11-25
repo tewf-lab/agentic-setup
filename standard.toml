@@ -1,0 +1,49 @@
+# The standard of an agentic setup: what any instance must hold, each practice with the oracle that proves it.
+# The established practices come from research/architecture/position.md ("Known"); the rest from the concept design
+# of 24 Nov. 2026. An instance maps each practice to its own files and the test command that proves it, in its
+# agentic-setup.toml, and checks/instance.py fails when a practice is unmapped, a file is missing or a test fails.
+
+[practice.S1]
+name = "gate"
+requires = "a reference monitor runs before every tool call of the steering model, denies by default and fails closed"
+source = "Saltzer and Schroeder 1975; research/architecture/position.md"
+
+[practice.S2]
+name = "delegation"
+requires = "the steering model does not author the bulk: an exact method assigns each task to an agent from a matrix of agents and estimators fed by the oracles"
+source = "issue 4; the concept design"
+
+[practice.S3]
+name = "acceptance"
+requires = "every task's result is judged by a test a program runs, never by the model that did the work"
+source = "Kambhampati 2024, LLM-Modulo; research/architecture/baseline.md"
+
+[practice.S4]
+name = "scope"
+requires = "a task's changes are held to the scope it declared"
+source = "least privilege, Saltzer and Schroeder 1975; issue 9 for the sandbox"
+
+[practice.S5]
+name = "ledger"
+requires = "every attempt is recorded with its agent, its outcome and its cost"
+source = "the concept design"
+
+[practice.S6]
+name = "dag"
+requires = "the work is held as a graph of tasks with no stuck task"
+source = "the concept design"
+
+[practice.S7]
+name = "cap"
+requires = "the steering model's own usage is measured against a cap that stops it"
+source = "the concept design"
+
+[practice.S8]
+name = "task-template"
+requires = "every task is made from the template and checked against the families its kind names"
+source = "issue 1; ai-augmented-project; reader-ergonomics-project"
+
+[practice.S9]
+name = "push"
+requires = "every task ends pushed, and the server's CI checks it again"
+source = "the concept design"
