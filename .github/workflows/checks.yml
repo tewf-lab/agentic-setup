@@ -4,6 +4,7 @@
 # needs the secret LAB_READ_TOKEN (read-only, the lab's repositories).
 name: checks
 on:
+  workflow_dispatch:
   push:
   pull_request:
 jobs:

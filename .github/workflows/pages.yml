@@ -3,6 +3,7 @@
 # the checks and the sandbox left out; on push to main.
 name: pages
 on:
+  workflow_dispatch:
   push:
     branches: [main]
 
