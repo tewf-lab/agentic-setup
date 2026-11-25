@@ -47,3 +47,13 @@ source = "issue 1; ai-augmented-project; reader-ergonomics-project"
 name = "push"
 requires = "every task ends pushed, and the server's CI checks it again"
 source = "the concept design"
+
+[practice.S10]
+name = "roles"
+requires = "every kind of task names the roles that cover it (skills as the heuristic, tools, exact methods), and a program checks they are present before the work starts and names the ones missing"
+source = "the roles family: a role extends a skill, with maths as its backbone, algorithmics as its engine and a model as its heuristic"
+
+[practice.S11]
+name = "improvement"
+requires = "the outcome of every task feeds the estimators and a gap detector, and a gap opens a task that creates or improves a role, a tool or the workflow itself"
+source = "issue 4 (the estimators and the detector of a missing role); the concept design"

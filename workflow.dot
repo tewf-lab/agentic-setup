@@ -1,0 +1,22 @@
+digraph workflow {
+  rankdir=TB; nodesep=0.3; ranksep=0.42;
+  node [shape=box, style="rounded,filled", fontname="Inter", fontsize=11, fontcolor="#1F2328", fillcolor="#E6F2EA", color="#2E7D4F"];
+  edge [fontname="Inter", fontsize=9, color="#3D434B", fontcolor="#3D434B"];
+  request [label="A request (person)\nfrom a message or an issue", fillcolor="#FBEDE4", color="#B4541A", penwidth=2];
+  task [label="S8 task-template\nmade from the template"];
+  roles [label="S10 roles\nthe kind's roles present?"];
+  dag [label="S6 dag\ndecomposed, no task stuck"];
+  method [label="S2 delegation\nthe exact method picks the agent"];
+  scope [label="S4 scope\nthe work held to its scope"];
+  accept [label="S3 acceptance\na test judges the result"];
+  ledger [label="S5 ledger\nevery attempt recorded"];
+  push [label="S9 push\nmerged, pushed, re-checked by CI"];
+  improve [label="S11 improvement\nestimators and the gap detector"];
+  gate [label="S1 gate\nevery call of the steering model", fillcolor="#E8EEF8", color="#2F5DA8"];
+  cap [label="S7 cap\nthe steering model's usage", fillcolor="#E8EEF8", color="#2F5DA8"];
+  request -> task; task -> roles; roles -> dag [label="covered"]; roles -> improve [label="a role missing"];
+  dag -> method; method -> scope; scope -> accept; accept -> ledger; ledger -> push [label="passed"];
+  ledger -> method [label="failed: next agent", style=dashed, color="#6A6D77"]; ledger -> improve;
+  improve -> task [label="a task to create or improve a role", style=dashed, color="#6A6D77"];
+  gate -> task [style=dashed, color="#6A6D77"]; cap -> gate [style=dashed, color="#6A6D77"];
+}

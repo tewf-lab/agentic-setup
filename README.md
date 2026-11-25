@@ -1,6 +1,6 @@
 # agentic-setup
 
-The standard of an agentic setup: nine practices, the research behind them, and the checker that holds an implementation to them.
+The standard of an agentic setup: eleven practices, the research behind them, and the checker that holds an implementation to them.
 
 > Status: version 0.1.0 in preparation, 2026-11-25.
 
@@ -10,7 +10,7 @@ The standard of an agentic setup: nine practices, the research behind them, and 
 
 This repository is the concept of an agentic setup, not an implementation of one. It holds three parts:
 
-- `standard.toml`: the standard: nine practices, each with what it requires and the source it comes from.
+- `standard.toml`: the standard: eleven practices, each with what it requires and the source it comes from.
 - `research/`: the studies behind the practices, from reviews of the field to measurements of the workflow itself.
 - `checks/instance.py`: the instance checker, which holds an implementation to the standard.
 
@@ -31,6 +31,10 @@ An implementation is its own repository, with its own agents, its own tests and 
 | S7 | cap | the steering model's own usage is measured against a cap that stops it |
 | S8 | task-template | every task is made from the template and checked against the families its kind names |
 | S9 | push | every task ends pushed, and the server's CI checks it again |
+| S10 | roles | every kind of task names the roles that cover it (skills as the heuristic, tools, exact methods), and a program checks they are present before the work starts |
+| S11 | improvement | the outcome of every task feeds the estimators and a gap detector, and a gap opens a task that creates or improves a role, a tool or the workflow |
+
+How the practices chain into one workflow, each step with its test: [workflow.md](workflow.md). Who plays each part: [organisation.md](organisation.md).
 
 ## How an implementation is checked
 
