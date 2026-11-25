@@ -74,12 +74,12 @@ class Check(Fixture):
         self.assertTrue(any(r.kind == "error" and r.practice == "S1" and "exit 1" in r.message for r in found))
 
     def test_a_local_only_test_is_skipped_in_ci_and_said_so(self):
-        text = GOOD.replace("[S2]\n", '[S2]\nwhere = "local"\n').replace("python3 -c 'pass'\"\n[S2]", "python3 -c 'pass'\"\n[S2]")
-        text = text.replace("test = \"python3 -c 'pass'\"\n", "test = \"python3 -c 'raise SystemExit(1)'\"\n", 2)
-        text = text.replace("test = \"python3 -c 'raise SystemExit(1)'\"\n", "test = \"python3 -c 'pass'\"\n", 1)
+        text = ('[S1]\nfiles = ["gate.py"]\ntest = "python3 -c \'pass\'"\n'
+                '[S2]\nwhere = "local"\nfiles = ["ledger.py"]\ntest = "python3 -c \'raise SystemExit(1)\'"\n')
         found = self.results(text, ci=True)
         self.assertFalse(any(r.kind == "error" and r.practice == "S2" for r in found))
         self.assertTrue(any(r.kind == "note" and r.practice == "S2" and "local" in r.message for r in found))
+        self.assertTrue(any(r.kind == "error" and r.practice == "S2" for r in self.results(text, ci=False)))
 
     def test_an_unknown_practice_in_the_map_is_an_error(self):
         found = self.results(GOOD + '[S9]\nfiles = ["gate.py"]\ntest = "true"\n')
