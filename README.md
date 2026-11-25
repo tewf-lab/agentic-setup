@@ -14,7 +14,7 @@ This repository is the concept of an agentic setup, not an implementation of one
 - `research/`: the studies behind the practices, from reviews of the field to measurements of the workflow itself.
 - `checks/instance.py`: the instance checker, which holds an implementation to the standard.
 
-An implementation is its own repository, with its own agents, its own tests and its own ledger; this repository says what any implementation must hold, and checks that it holds it. localAI is the first implementation.
+An implementation is its own repository, with its own agents, its own tests and its own ledger; this repository says what any implementation must hold, and checks that it holds it. The first implementation is the reference implementation.
 
 ## The standard
 
@@ -42,7 +42,7 @@ files = ["gate.py"]
 test = "python3 -m unittest test_gate.py"
 ```
 
-From this repository, `python3 checks/instance.py --instance PATH` then checks the instance against `standard.toml`: it fails when a practice is unmapped, a mapped file is missing, or a test command fails, and it warns when a practice is waived with a reason. `python3 checks/instance.py --list` lists the practices. localAI is the first implementation, checked this way.
+From this repository, `python3 checks/instance.py --instance PATH` then checks the instance against `standard.toml`: it fails when a practice is unmapped, a mapped file is missing, or a test command fails, and it warns when a practice is waived with a reason. `python3 checks/instance.py --list` lists the practices. The reference implementation is checked this way.
 
 ## Research
 

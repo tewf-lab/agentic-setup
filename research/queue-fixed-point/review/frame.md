@@ -6,7 +6,7 @@ Step 1 of the review for [agentic-setup#1](https://github.com/tewf-lab/agentic-s
 
 ## The problem in one sentence
 
-A steering session is told "finish everything open in localAI and the lab", but the work it does comes from a list someone wrote into its prompt: which exact method makes the work done converge on the work asked, without anyone enumerating it?
+A steering session is told "finish everything open in the reference implementation and the lab", but the work it does comes from a list someone wrote into its prompt: which exact method makes the work done converge on the work asked, without anyone enumerating it?
 
 Terms used below, defined once:
 
@@ -43,7 +43,7 @@ Terms used below, defined once:
 
 - **Task queue** and **task management agent**: BabyAGI, "an AI-powered task management system... creates tasks based on the result of previous tasks" (BabyAGI 2023).
 - **Backlog**, **velocity**, **known and unknown work**: the product owner's list and the team's rate of closing it, forecast as a range (Mountain Goat 2026).
-- **Night prompt**, **session**, **seat**: localAI's own practice, the hand-written list this review is to replace.
+- **Night prompt**, **session**, **seat**: the reference implementation's own practice, the hand-written list this review is to replace.
 - **Closing the loop**: "Closes #10" in a pull request; the merge closes the issue (GitHub Docs 2026).
 - **Agent**, **subagent**, **workflow**: the frameworks' words, with the agent's completion decided inside the loop (Anthropic 2024; Cognition 2025).
 
@@ -55,7 +55,7 @@ Terms used below, defined once:
 ## In and out
 
 In: the five strands below, for one seat working a program-built queue, closing sources as items finish, stopping at a fixed point or a cap, measured by coverage.
-Out: multi-agent coordination, delegation and incentives (held elsewhere); scheduling and priority theory beyond the queue's order; the cost model of a night's tokens; the localAI implementation itself (the pin, after the design).
+Out: multi-agent coordination, delegation and incentives (held elsewhere); scheduling and priority theory beyond the queue's order; the cost model of a night's tokens; the reference implementation itself (the pin, after the design).
 
 ## Sub-questions
 

@@ -17,13 +17,13 @@ import analyse  # noqa: E402
 # holds only ts, week and job, as the orphan detector writes it); j-4 is a spec_error (the same keys plus repo); j-5 is
 # stopped by the path guard, oracle not run. A sixth row, j-6, stops on the plan's quota, which is counted apart too.
 LEDGER = """\
-{"ts": "2026-11-24T10:00:00+0100", "week": "2026-W48", "job": "j-1", "attempt": 1, "repo": "localai", "class": "code", "backend": "glm", "tokens_in": 12000, "tokens_out": 2000, "cache_read": 30000, "usd": 0.0, "oracle": "pass", "path_guard": "ok", "escalated_from": null}
-{"ts": "2026-11-24T11:00:00+0100", "week": "2026-W48", "job": "j-2", "attempt": 1, "repo": "localai", "class": "code", "backend": "glm", "tokens_in": 20000, "tokens_out": 4000, "cache_read": 50000, "usd": 0.0, "oracle": "fail", "path_guard": "ok", "escalated_from": null}
-{"ts": "2026-11-24T11:20:00+0100", "week": "2026-W48", "job": "j-2", "attempt": 2, "repo": "localai", "class": "code", "backend": "mistral", "tokens_in": 8000, "tokens_out": 1500, "cache_read": 0, "usd": 0.04, "oracle": "pass", "path_guard": "ok", "escalated_from": "glm"}
+{"ts": "2026-11-24T10:00:00+0100", "week": "2026-W48", "job": "j-1", "attempt": 1, "repo": "reference-implementation", "class": "code", "backend": "glm", "tokens_in": 12000, "tokens_out": 2000, "cache_read": 30000, "usd": 0.0, "oracle": "pass", "path_guard": "ok", "escalated_from": null}
+{"ts": "2026-11-24T11:00:00+0100", "week": "2026-W48", "job": "j-2", "attempt": 1, "repo": "reference-implementation", "class": "code", "backend": "glm", "tokens_in": 20000, "tokens_out": 4000, "cache_read": 50000, "usd": 0.0, "oracle": "fail", "path_guard": "ok", "escalated_from": null}
+{"ts": "2026-11-24T11:20:00+0100", "week": "2026-W48", "job": "j-2", "attempt": 2, "repo": "reference-implementation", "class": "code", "backend": "mistral", "tokens_in": 8000, "tokens_out": 1500, "cache_read": 0, "usd": 0.04, "oracle": "pass", "path_guard": "ok", "escalated_from": "glm"}
 {"ts": "2026-11-24T12:00:00+0100", "week": "2026-W48", "job": "j-3", "oracle": "orphaned"}
-{"ts": "2026-11-24T12:30:00+0100", "week": "2026-W48", "job": "j-4", "repo": "localai", "oracle": "spec_error"}
-{"ts": "2026-11-24T13:00:00+0100", "week": "2026-W48", "job": "j-5", "attempt": 1, "repo": "localai", "class": "research", "backend": "glm", "tokens_in": 5000, "tokens_out": 800, "cache_read": 1000, "usd": 0.0, "oracle": "not run", "path_guard": "outside the scope: notes.md", "escalated_from": null}
-{"ts": "2026-11-24T14:00:00+0100", "week": "2026-W48", "job": "j-6", "attempt": 1, "repo": "localai", "class": "code", "backend": "glm", "tokens_in": 9000, "tokens_out": 900, "cache_read": 0, "usd": 0.0, "oracle": "quota", "path_guard": "ok", "escalated_from": null}
+{"ts": "2026-11-24T12:30:00+0100", "week": "2026-W48", "job": "j-4", "repo": "reference-implementation", "oracle": "spec_error"}
+{"ts": "2026-11-24T13:00:00+0100", "week": "2026-W48", "job": "j-5", "attempt": 1, "repo": "reference-implementation", "class": "research", "backend": "glm", "tokens_in": 5000, "tokens_out": 800, "cache_read": 1000, "usd": 0.0, "oracle": "not run", "path_guard": "outside the scope: notes.md", "escalated_from": null}
+{"ts": "2026-11-24T14:00:00+0100", "week": "2026-W48", "job": "j-6", "attempt": 1, "repo": "reference-implementation", "class": "code", "backend": "glm", "tokens_in": 9000, "tokens_out": 900, "cache_read": 0, "usd": 0.0, "oracle": "quota", "path_guard": "ok", "escalated_from": null}
 """
 
 
