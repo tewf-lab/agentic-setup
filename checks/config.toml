@@ -1,0 +1,6 @@
+# The checks of the reader-ergonomics family, extended to this repository.
+extends = "reader-ergonomics"
+
+# The studies keep their generated output under out/, which no check reads and no commit holds.
+[scope]
+exclude = ["research/*/out/"]

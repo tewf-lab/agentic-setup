@@ -1,0 +1,27 @@
+name: checks
+
+on:
+  - push
+  - pull_request
+
+env:
+  # The ref of Tewf/reader-ergonomics that Tewf/ai-augmented-agents pins; move it when that pin moves.
+  READER_ERGONOMICS_REF: master
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Tewf/reader-ergonomics
+          ref: ${{ env.READER_ERGONOMICS_REF }}
+          path: reader-ergonomics
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: the reader-ergonomics checks on this repository
+        run: python3 reader-ergonomics/checks/check.py --config checks/config.toml .
+      - name: this repository's tests
+        run: python3 -m unittest discover -s checks -p 'test_*.py'
