@@ -1,0 +1,35 @@
+# The site of this repository on GitHub Pages, as the families publish theirs (Tewf/ai-augmented-agents): the concept's
+# pages rendered, the checks and the sandbox left out, the standard's stylesheet over the theme.
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "**/*.md"
+    - "**/*.qmd"
+    - "!checks/"
+    - "!sandbox/"
+    - "!research/*/out/"
+
+website:
+  title: "Agentic setup"
+  description: "The standard of an agentic setup: nine practices, the research behind them, and the checker that holds an implementation to them."
+  site-url: https://tewf-lab.github.io/agentic-setup/
+  repo-url: https://github.com/tewf-lab/agentic-setup
+  repo-actions: [source, issue]
+  navbar:
+    left:
+      - text: "The standard"
+        href: index.qmd
+      - text: "Architecture"
+        href: research/architecture/review.md
+      - text: "DAG scheduling"
+        href: research/dag-scheduling/review.md
+      - text: "Workflow performance"
+        href: research/workflow-performance/README.md
+      - text: "Sandbox"
+        href: research/sandbox/review.md
+
+format:
+  html:
+    theme: cosmo
+    css: _standard/site.css
