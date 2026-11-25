@@ -19,6 +19,8 @@ jobs:
           git clone --quiet https://github.com/Tewf/reader-ergonomics "$RUNNER_TEMP/reader-ergonomics"
           git -C "$RUNNER_TEMP/reader-ergonomics" checkout --quiet 65e42472e2d4cbfd994c2a86e95a47e5dc7301ca
           git clone --quiet --depth 1 https://github.com/Tewf/reader-ergonomics-review "$RUNNER_TEMP/reader-ergonomics-review"
+      - name: Leak scan (public repository: no home path, email or key)
+        run: python3 checks/leak_scan.py .
       - name: Writing checks
         run: python3 "$RUNNER_TEMP/reader-ergonomics/checks/run.py" .
       - name: This repository's tests
