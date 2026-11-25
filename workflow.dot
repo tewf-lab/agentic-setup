@@ -5,7 +5,7 @@ digraph workflow {
   request [label="A request (person)\nfrom a message or an issue", fillcolor="#FBEDE4", color="#B4541A", penwidth=2];
   task [label="S8 task-template\nmade from the template"];
   roles [label="S10 roles\nthe kind's roles present?"];
-  dag [label="S6 dag\ndecomposed, no task stuck"];
+  dag [label="S6 dag\nevery issue a task, none stuck;\na program starts the ready ones"];
   method [label="S2 delegation\nthe exact method picks the agent"];
   scope [label="S4 scope\nthe work held to its scope"];
   accept [label="S3 acceptance\na test judges the result"];

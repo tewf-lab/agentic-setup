@@ -14,7 +14,7 @@ checked.
 
 - S8 task-template: every task starts from the template; a task built as a project follows the structure of a thesis (problem, scope, review, baseline, plan, trail).
 - S10 roles: the kind of task names the roles that cover it; a program checks they are present, and a missing one goes to the improvement step.
-- S6 dag: the work is decomposed into a graph of tasks, none stuck.
+- S6 dag: the work is decomposed into a graph of tasks, none stuck; every open issue is a task, and a program, not the steering model, starts each ready task that carries a check: a graph only a model drains stops when that model does.
 - S2 delegation: the exact method picks the agent for each task.
 - S4 scope: the work is held to the scope the task declared.
 - S3 acceptance: a test the program runs judges the result.
@@ -51,7 +51,7 @@ digraph workflow {
   request [label="A request (person)\nfrom a message or an issue", fillcolor="#FBEDE4", color="#B4541A", penwidth=2];
   task [label="S8 task-template\nmade from the template"];
   roles [label="S10 roles\nthe kind's roles present?"];
-  dag [label="S6 dag\ndecomposed, no task stuck"];
+  dag [label="S6 dag\nevery issue a task, none stuck;\na program starts the ready ones"];
   method [label="S2 delegation\nthe exact method picks the agent"];
   scope [label="S4 scope\nthe work held to its scope"];
   accept [label="S3 acceptance\na test judges the result"];

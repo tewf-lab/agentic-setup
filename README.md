@@ -27,7 +27,7 @@ An implementation is its own repository, with its own agents, its own tests and 
 | S3 | acceptance | every task's result is judged by a test a program runs, never by the model that did the work |
 | S4 | scope | a task's changes are held to the scope it declared |
 | S5 | ledger | every attempt is recorded with its agent, its outcome and its cost |
-| S6 | dag | the work is held as a graph of tasks with no stuck task |
+| S6 | dag | the work is held as a graph of tasks: every open issue is one, none is stuck, and a program, not the steering model, starts each ready task that carries a check |
 | S7 | cap | the steering model's own usage is measured against a cap that stops it |
 | S8 | task-template | every task is made from the template and checked against the families its kind names |
 | S9 | push | every task ends pushed, and the server's CI checks it again |

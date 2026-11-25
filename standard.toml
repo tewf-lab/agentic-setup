@@ -30,8 +30,8 @@ source = "the concept design"
 
 [practice.S6]
 name = "dag"
-requires = "the work is held as a graph of tasks with no stuck task"
-source = "the concept design"
+requires = "the work is held as a graph of tasks: every open issue is one, none is stuck, and a program, not the steering model, starts each ready task that carries a check"
+source = "the concept design; a program starts the work since a graph only a model drains stops with it (25 Nov. 2026)"
 
 [practice.S7]
 name = "cap"
