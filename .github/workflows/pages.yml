@@ -11,6 +11,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read      # deploy-pages reads the run's own artifact (tewf-lab, 25 Nov.)
 
 concurrency:
   group: pages
